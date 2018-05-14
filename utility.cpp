@@ -12,13 +12,8 @@
 #include <cmath> 
 
 bool numsApproxEqual(double num1, double num2, double tolerance){
-	if( fabs(num1-num2) > tolerance){
-		return true;
-	}
-	else{
-		return false;
 
-	}
-
+	return fabs(num1 - num2) < tolerance;
+ 
 
 }

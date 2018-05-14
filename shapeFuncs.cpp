@@ -79,8 +79,12 @@ bool pointsApproxEqual(Point p1,
 }
 
 bool boxesApproxEqual(Box b1, Box b2, double tolerance) {
+  return (pointsApproxEqual(b1.ul,b2.ul,tolerance) and numsApproxEqual(b1.width,b2.width,tolerance) and numsApproxEqual(b1.height,b2.height,tolerance));
 
 
+
+
+}
   
   // Two boxes are approximately equal if their upper left corners are approximately 
   // equal, and if their corresponding widths and height are approx equal.
@@ -110,7 +114,15 @@ bool boxesApproxEqual(Box b1, Box b2, double tolerance) {
 
 void initBox(struct Box *b, double ulx, double uly, double w, double h)
 {
-  return; // @@@ For a void function a "naked return" is a "do nothing" stub
+  (b->ul).x = ulx;
+  (b->ul).y = uly;
+  (b->width) = w;
+  (b->height) = h;
+
+  boxesApproxEqual(*b,*b);
+  return;
+
+
 }
 
 
